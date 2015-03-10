@@ -1,1 +1,28 @@
-%h3 ABCD
+%h2 Total User Count:
+%h3=@num_users
+
+%h2 Total Order Count:
+%h3=@num_orders
+
+%h2 Total Product Count:
+%h3=@num_products
+
+%h2 Total Ordered Products:
+%h3=@num_products_ordered
+
+%hr
+
+%h2 What can we do with this info? What can we do now that we're on the server?
+
+%p Enter your answers directly into the DB in the ANSWERS table. Each question indicates a key with an example response.
+
+%ul
+  %li (key: cc_count) How many credit card numbers are stored in the db?
+  %li (key: cc_plus_billing_count) How many credit cards WITH billing addresses?
+  %li (key: dev_creds) How many different developer/API/other credentials can you find? Comma separate and enumerate.
+  %li (key: user_creds_count) What about credentials for end users?
+
+%ul
+  -@answers.each do |ans|
+    %li="#{ans.key_name}: #{ans.display_key_value}"
+
