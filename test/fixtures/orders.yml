@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  shipping_address: MyText
+  billing_address: MyText
+  cc_num: MyString
+  cc_exp: MyString
+  cc_code: MyString
+
+two:
+  user_id: 1
+  shipping_address: MyText
+  billing_address: MyText
+  cc_num: MyString
+  cc_exp: MyString
+  cc_code: MyString
