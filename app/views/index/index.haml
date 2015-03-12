@@ -21,8 +21,7 @@
   %li (key: cc_count) How many credit card numbers are stored in the db?
   %li (key: cc_plus_billing_count) How many credit cards WITH billing addresses?
   %li (key: dev_creds) How many different developer/API/other credentials can you find? Comma separate and enumerate.
-  %li (key: user_creds_valid_count) What about credentials for end users?
-  %li (key: user_creds_invalid_count) How many end user credentials are useless (i.e. empty passwords)?
+  %li (key: user_creds_count) What about credentials for end users?
   %li (key: most_destructive_db_command) Most destructive database command that preserves your answer entries?
   %li (key: most_destructive_sh_command) Most destructive bash/shell command? Be prepared to restore if you run it ;)
   %li (key: place_100_dollar_order_command) What command would you use to place an order totalling at least $100 for each user?
@@ -37,7 +36,11 @@
 
 %h4 The DB is gone/significantly modified? The DB data is too screwed up to work with?
 
-%p Go to the root directory of the app and run `bundle exec rake db:create db:migrate db:seed`. If you're the wrong user, fix that ;)
+%p To return the app data back to its original state:
+%ul
+  %li Go to the root directory of the app
+  %li Run `RAILS_ENV=production bundle exec rake db:drop db:create db:migrate db:seed`
+  %li If you get a permission error, maybe you should fix that ;)
 
 %h4 App has stopped serving up results?
 
