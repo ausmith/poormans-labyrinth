@@ -9,5 +9,10 @@ node[:deploy].each do |application, deploy|
       cwd release_dir
       command 'bundle install --without development test --jobs 2'
     end
+
+    execute "rake db:create db:migrate: #{rails_env}" do
+      cwd release_dir
+      command "RAILS_ENV=#{rails_env} bundle exec rake db:create db:migrate"
+    end
   end  
 end
