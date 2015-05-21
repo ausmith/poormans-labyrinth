@@ -10,11 +10,6 @@ node[:deploy].each do |application, deploy|
       command 'bundle install --without development test --jobs 2'
     end
 
-    execute "Precompiling assets for env: #{rails_env}" do
-      cwd release_dir
-      command "RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
-    end
-
     execute "Ensuring app log is owned by #{user}:#{group}" do
       cwd ::File.join(release_dir, 'log')
       command "sudo chown #{user}:#{group} #{rails_env}.log"
